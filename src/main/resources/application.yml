@@ -1,2 +1,14 @@
+##配置端口号
 server:
   port: 1227
+##配置springmvc的静态资源
+spring:
+  mvc:
+    static-path-pattern: /static/
+##配置github的client_id,client_secret,redirect_uri,将通用的数据存到配置文件
+github:
+  client:
+    id: 02e535d7d1aca2b009aa
+    secret: 631e0453d4e907fabfcf3b03ae6919170ee581f4
+  redirect:
+    uri: http://127.0.0.1:1227/callback
