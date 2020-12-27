@@ -1,10 +1,18 @@
 ##配置端口号
 server:
   port: 1227
-##配置springmvc的静态资源
+
 spring:
-  mvc:
-    static-path-pattern: /static/
+  ##配置spring内置的数据库连接
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/community_demo?characterEncoding=utf-8
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+
+
 ##配置github的client_id,client_secret,redirect_uri,将通用的数据存到配置文件
 github:
   client:
@@ -12,3 +20,13 @@ github:
     secret: 631e0453d4e907fabfcf3b03ae6919170ee581f4
   redirect:
     uri: http://127.0.0.1:1227/callback
+
+##mybatis配置
+mybatis:
+  ##配置下划线命名对应驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+  ##配置模型位置
+  type-aliases-package: cn.gfh.community.model
+  ##配置mapper.xml映射位置
+  mapper-locations: classpath:mapper/*.xml
